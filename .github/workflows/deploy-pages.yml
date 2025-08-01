@@ -5,8 +5,9 @@ on:
     branches: [ main ]
 
 permissions:
-  contents: read
-  pages: write
+  contents: read     # needed for checkout
+  pages: write       # needed to push to gh-pages
+  id-token: write    # needed by actions/deploy-pages to get an OIDC token
 
 jobs:
   build-and-deploy:
