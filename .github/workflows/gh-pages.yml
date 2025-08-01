@@ -1,20 +1,20 @@
-name: Build & Publish to GitHub Pages
+name: Build & Publish to gh-pages
 
 on:
   push:
     branches:
-      - main    # or change to your default branch
+      - main    # or your default branch
 
 permissions:
-  contents: write    # needed so the GH_TOKEN can push to gh-pages
-  pages: write       # needed to publish Pages
-  id-token: write    # harmless to include
+  contents: write    # so GH_TOKEN can commit
+  pages: write       # to publish Pages
+  id-token: write    # harmless
 
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Setup Node.js 18
@@ -22,7 +22,7 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Install dependencies & build
+      - name: Install & build
         run: |
           cd project
           npm ci
@@ -32,5 +32,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
           publish_dir: ./project/dist
           cname: lawtontennisacademy.com
+          enable_jekyll: false    # ← writes a .nojekyll file for you
