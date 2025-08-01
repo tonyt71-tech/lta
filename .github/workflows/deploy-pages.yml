@@ -1,21 +1,20 @@
-name: Deploy Vite Site to GitHub Pages
+name: Build & Deploy Vite Site to GitHub Pages
 
 on:
   push:
     branches:
-      - main    # or your default branch
+      - main
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: read     # for checkout
+  pages: write       # to publish
+  id-token: write    # for OIDC
 
 jobs:
-  build:
-    name: Build site
+  deploy-site:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Setup Node.js
@@ -23,10 +22,14 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install & build
+      - name: Install dependencies
         run: |
           cd project
           npm ci
+
+      - name: Build site
+        run: |
+          cd project
           npm run build
 
       - name: Upload Pages artifact
@@ -34,10 +37,5 @@ jobs:
         with:
           path: project/dist
 
-  deploy:
-    name: Deploy to GitHub Pages
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
