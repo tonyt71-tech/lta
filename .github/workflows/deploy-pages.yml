@@ -1,26 +1,26 @@
-name: Build & Deploy to GitHub Pages
+name: Build & Publish to gh-pages
 
 on:
   push:
     branches:
-      - main    # or your default branch
+      - main   # or your actual default branch
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write   # allows the action to push to gh-pages
+  pages: write      # not used here but harmless
+  id-token: write   # harmless
 
 jobs:
-  build_and_deploy:
+  publish:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - name: Check out code
+        uses: actions/checkout@v3
 
-      - name: Setup Node.js 18
-        uses: actions/setup-node@v4
+      - name: Use Node.js 18
+        uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: '18'
 
       - name: Install & build
         run: |
@@ -28,13 +28,11 @@ jobs:
           npm ci
           npm run build
 
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v3
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          path: project/dist
-
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v1
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./project/dist
+          cname: lawtontennisacademy.com
+          enable_jekyll: false
