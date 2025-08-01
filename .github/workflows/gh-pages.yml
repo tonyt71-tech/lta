@@ -1,0 +1,37 @@
+name: Build & Publish to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main    # or your default branch
+
+permissions:
+  contents: read                # for checkout
+  pages: write                  # to push to gh-pages
+  id-token: write               # not strictly needed here but harmless
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Use Node.js 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install & build
+        run: |
+          cd project
+          npm ci
+          npm run build
+
+      - name: Deploy to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./project/dist
+          cname: lawtontennisacademy.com
+          # enable_jekyll: false   # optional: adds .nojekyll for you (default)
