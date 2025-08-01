@@ -6,9 +6,9 @@ on:
       - main    # or your default branch
 
 permissions:
-  contents: write    # so GH_TOKEN can commit
+  contents: write    # so GITHUB_TOKEN can push
   pages: write       # to publish Pages
-  id-token: write    # harmless
+  id-token: write    # for OIDC (harmless)
 
 jobs:
   publish:
@@ -17,7 +17,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup Node.js 18
+      - name: Use Node.js 18
         uses: actions/setup-node@v3
         with:
           node-version: '18'
@@ -35,4 +35,4 @@ jobs:
           publish_branch: gh-pages
           publish_dir: ./project/dist
           cname: lawtontennisacademy.com
-          enable_jekyll: false    # ← writes a .nojekyll file for you
+          enable_jekyll: false
