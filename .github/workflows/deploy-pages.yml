@@ -2,43 +2,28 @@ name: Build & Deploy to GitHub Pages
 
 on:
   push:
-    branches:
-      - main    # or your default branch
+    branches: [ main ]
 
 permissions:
-  contents: read    # checkout
-  pages: write      # publish
-  id-token: write   # OIDC for deploy
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
-  build:
+  build_and_deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-
-      - name: Install & build
-        run: |
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 18 }
+      - run: |
           cd project
           npm ci
           npm run build
-
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v3
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
-        with:
-          path: project/dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to GitHub Pages
+        with: { path: project/dist }
+      - name: Deploy
         uses: actions/deploy-pages@v1
