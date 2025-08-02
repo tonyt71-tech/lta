@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "lawtontennisacademy.com",
+  "homepage": "https://www.lawtontennisacademy.com",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
