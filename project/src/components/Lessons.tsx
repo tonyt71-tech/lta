@@ -1,113 +1,37 @@
 import React from 'react';
 
-const Lessons = () => {
+const Lessons: React.FC = () => {
   return (
-    <section id="lessons" className="py-20 bg-gradient-to-br from-orange-100 to-yellow-100">
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl md:text-5xl font-bold text-center text-orange-900 mb-16" style={{ fontFamily: 'Bebas Neue, cursive' }}>
-          LESSON OPTIONS
+    <section className="w-full px-4 sm:px-6 lg:px-12 py-20 bg-gradient-to-b from-green-900 to-green-950 text-white">
+      <div className="max-w-6xl mx-auto text-center">
+        <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-yellow-400 drop-shadow">
+          Schedule a Lesson
         </h2>
+        <p className="mb-8 text-lg">
+          Use the calendar below to view availability and book your session.
+        </p>
 
-        <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          {/* Private Lessons */}
-          <div className="bg-white rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition-transform duration-300">
-            <div className="bg-gradient-to-r from-orange-600 to-yellow-600 p-6">
-              <div className="flex items-center space-x-3">
-                <span className="text-4xl">🎾</span>
-                <h3 className="text-2xl font-bold text-white" style={{ fontFamily: 'Bebas Neue, cursive' }}>
-                  PRIVATE LESSONS
-                </h3>
-              </div>
-            </div>
-            
-            <div className="p-8">
-              <p className="text-orange-800 mb-6 leading-relaxed" style={{ fontFamily: 'Oswald, sans-serif' }}>
-                One-on-one instruction tailored specifically to your skill level and goals. Get personalized attention and accelerated improvement with our expert coaches.
-              </p>
-              
-              <div className="space-y-4 mb-6">
-                <div className="flex items-center space-x-3">
-                  <span className="text-orange-600">★</span>
-                  <span className="text-orange-800">100% personalized attention</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <span className="text-orange-600">★</span>
-                  <span className="text-orange-800">Flexible scheduling</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <span className="text-orange-600">★</span>
-                  <span className="text-orange-800">Customized training plans</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <span className="text-orange-600">★</span>
-                  <span className="text-orange-800">Fastest skill development</span>
-                </div>
-              </div>
-
-              <div className="bg-orange-50 p-4 rounded-lg mb-6">
-                <p className="text-orange-800 font-medium text-center">
-                  Perfect for beginners to advanced players
-                </p>
-              </div>
-
-              <button className="retro-button-secondary w-full py-3">
-                Learn More
-              </button>
-            </div>
-          </div>
-
-          {/* Small Group Lessons */}
-          <div className="bg-white rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition-transform duration-300">
-            <div className="bg-gradient-to-r from-yellow-600 to-orange-600 p-6">
-              <div className="flex items-center space-x-3">
-                <span className="text-4xl">👥</span>
-                <h3 className="text-2xl font-bold text-white" style={{ fontFamily: 'Bebas Neue, cursive' }}>
-                  SMALL GROUP LESSONS
-                </h3>
-              </div>
-            </div>
-            
-            <div className="p-8">
-              <p className="text-orange-800 mb-6 leading-relaxed" style={{ fontFamily: 'Oswald, sans-serif' }}>
-                Learn with friends, family, or new tennis partners in our small group settings. Maximum 5 players per session for quality instruction and social fun.
-              </p>
-              
-              <div className="space-y-4 mb-6">
-                <div className="flex items-center space-x-3">
-                  <span className="text-yellow-600">★</span>
-                  <span className="text-orange-800">2-5 players maximum</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <span className="text-yellow-600">★</span>
-                  <span className="text-orange-800">Social learning environment</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <span className="text-yellow-600">★</span>
-                  <span className="text-orange-800">Cost-effective option</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <span className="text-yellow-600">★</span>
-                  <span className="text-orange-800">Practice match play</span>
-                </div>
-              </div>
-
-              <div className="bg-yellow-50 p-4 rounded-lg mb-6">
-                <p className="text-orange-800 font-medium text-center">
-                  Great for friends and families
-                </p>
-              </div>
-
-              <button className="retro-button-secondary w-full py-3">
-                Learn More
-              </button>
-            </div>
-          </div>
+        <div className="w-full max-w-4xl mx-auto aspect-[4/3] mb-12 rounded-lg overflow-hidden shadow-lg">
+          <iframe
+            src="https://calendar.google.com/calendar/embed?src=e7389edd6836d48e1d2d371d0879a5d8ad0a51142915fb127b5fccf157eec288%40group.calendar.google.com&ctz=America%2FChicago"
+            style={{ border: 0 }}
+            className="w-full h-full"
+            frameBorder="0"
+            scrolling="no"
+            title="Lesson Booking Calendar"
+          ></iframe>
         </div>
 
-        <div className="text-center mt-12">
-          <button className="retro-button-primary text-xl px-10 py-4 transform hover:scale-105 transition-all duration-300">
-            📅 SCHEDULE YOUR LESSON
-          </button>
+        <div className="bg-white text-green-900 p-6 rounded-lg shadow-lg max-w-3xl mx-auto">
+          <h3 className="text-2xl font-semibold mb-4">
+            Certifications
+          </h3>
+          <ul className="list-disc list-inside text-left space-y-2">
+            <li>PTR Certified – Adult Development</li>
+            <li>USTA Safe Play Certified</li>
+            <li>First Aid & CPR Certified</li>
+            {/* Add more if needed */}
+          </ul>
         </div>
       </div>
     </section>
