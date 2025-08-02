@@ -38,5 +38,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           cname: lawtontennisacademy.com
-          clean: true
           enable_jekyll: false
