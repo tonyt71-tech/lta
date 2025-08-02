@@ -7,32 +7,38 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 jobs:
   publish:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: project
+
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      - name: Install dependencies & build
-        run: |
-          cd project
-          npm install
-          npm run build
+      - name: Install dependencies
+        run: npm install
 
-      - name: Deploy to gh-pages
+      - name: Build project
+        run: npm run build
+
+      - name: Deploy to gh-pages (clean)
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: project/dist
+          publish_dir: ./dist
           publish_branch: gh-pages
           cname: lawtontennisacademy.com
-          clean: true        # <-- this will remove all old files first
+          clean: true
           enable_jekyll: false
