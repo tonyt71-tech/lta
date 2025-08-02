@@ -23,8 +23,8 @@ jobs:
       - name: Install dependencies & build
         run: |
           npm install
-          npm run predeploy   # builds into dist
-
+          npm run predeploy   # this runs `npm run build`
+      
       - name: Configure Git identity
         run: |
           git config --global user.name "GitHub Actions"
