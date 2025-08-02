@@ -13,27 +13,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      - name: Install Dependencies
+      - name: Install dependencies & build
         run: |
           cd project
-          npm install  # <-- ensures all required modules like autoprefixer are installed
-
-      - name: Build
-        run: |
-          cd project
+          npm install
           npm run build
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./project/dist
+          publish_dir: project/dist
+          publish_branch: gh-pages
           cname: lawtontennisacademy.com
+          clean: true        # <-- this will remove all old files first
+          enable_jekyll: false
