@@ -20,10 +20,17 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install dependencies, build & deploy
+      - name: Install dependencies & build
         run: |
           npm install
-          npm run predeploy   # runs `npm run build`
-          npm run deploy      # runs `gh-pages -d dist`
+          npm run predeploy   # builds into dist
+
+      - name: Configure Git identity
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+
+      - name: Deploy to gh-pages
+        run: npm run deploy
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
