@@ -6,11 +6,15 @@ on:
       - main
 
 permissions:
-  contents: write  # Needed for GITHUB_TOKEN to push
+  contents: write
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: project  # This points to your actual Vite project folder
 
     steps:
       - name: Checkout source code
@@ -21,8 +25,8 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install dependencies (no lock file)
-        run: npm install
+      - name: Install dependencies
+        run: npm ci
 
       - name: Build Vite project
         run: npm run build
@@ -31,4 +35,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: project/dist
