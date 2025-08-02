@@ -1,9 +1,9 @@
 {
-  "name": "vite-react-typescript-starter",
+  "name": "lawton-tennis-academy",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
-  "homepage": "https://www.lawtontennisacademy.com",
+  "homepage": "https://lawtontennisacademy.com",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -22,7 +22,7 @@
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
-    "autoprefixer": "^10.4.18",
+    "autoprefixer": "^10.4.18",      
     "postcss": "^8.4.35",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.5.3",
