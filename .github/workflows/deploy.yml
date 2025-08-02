@@ -1,17 +1,11 @@
-name: Build & Publish to gh-pages
+name: Auto-deploy LTA
 
 on:
   push:
-    branches:
-      - main
-
-permissions:
-  contents: write
-  pages: write
-  id-token: write
+    branches: [ main ]
 
 jobs:
-  publish:
+  deploy:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -19,25 +13,17 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build project
-        run: npm run build
-
-      - name: Deploy to gh-pages (clean)
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          publish_branch: gh-pages
-          cname: lawtontennisacademy.com
-          clean: true
-          enable_jekyll: false
+      - name: Install dependencies, build & deploy
+        run: |
+          npm install
+          npm run predeploy   # runs `npm run build`
+          npm run deploy      # runs `gh-pages -d dist`
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
