@@ -1,21 +1,23 @@
-import React from 'react';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import BackgroundSection from './components/BackgroundSection';
-import About from './components/About';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
+import React from "react";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Pricing from "./components/Pricing";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
-function App() {
+export default function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-800 to-green-600">
+    <div className="min-h-screen">
       <Header />
-      <BackgroundSection />
-      <About />
-      <Contact />
+      <main>
+        <Hero />
+        <About />
+        {/* Ensure Pricing is included and in the right spot */}
+        <Pricing />
+        <Contact />
+      </main>
       <Footer />
     </div>
   );
 }
-
-export default App;
