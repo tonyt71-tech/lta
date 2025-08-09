@@ -32,8 +32,7 @@ export default function Pricing() {
               </li>
             </ul>
             <p className="body">
-              Balanced value and individual attention, ideal for friends or
-              siblings.
+              Balanced value and individual attention, ideal for friends or siblings.
             </p>
           </div>
 
