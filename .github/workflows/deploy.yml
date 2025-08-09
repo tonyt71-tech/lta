@@ -1,3 +1,4 @@
+# File: .github/workflows/deploy.yml
 name: Build & Deploy (GitHub Pages)
 
 on:
@@ -19,21 +20,29 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: project
+        working-directory: project   # <-- your app lives in /project
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Required so Pages recognizes and accepts the artifact we upload
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      # don’t use npm ci (avoids lock mismatch errors)
-      - name: Install deps
+      # Use npm install (not npm ci) to avoid lockfile drift issues
+      - name: Install dependencies
         run: npm install --no-audit --no-fund
 
       - name: Build
         run: npm run build
 
-      - name: SPA fallback
+      # SPA routing fallback for GitHub Pages
+      - name: Copy index.html to 404.html
         run: cp dist/index.html dist/404.html
 
       - name: Upload artifact
@@ -48,5 +57,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - id: deployment
+      - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4
