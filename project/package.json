@@ -1,33 +1,27 @@
 {
-  "name": "lawton-tennis-academy",
+  "name": "lta",
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "https://lawtontennisacademy.com",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "preview": "vite preview --port 5173"
   },
   "dependencies": {
-    "lucide-react": "^0.344.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "framer-motion": "^11.3.28",
+    "lucide-react": "^0.446.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@eslint/js": "^9.9.1",
-    "@types/react": "^18.3.5",
+    "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "@vitejs/plugin-react": "^4.3.1",
-    "autoprefixer": "^10.4.18",      
-    "postcss": "^8.4.35",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5.5.3",
-    "typescript-eslint": "^8.3.0",
-    "vite": "^5.4.2",
-    "gh-pages": "^6.3.0"
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.41",
+    "tailwindcss": "^3.4.10",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.2"
   }
 }
