@@ -40,9 +40,8 @@ const Footer = () => {
               CONTACT
             </h4>
             <div className="space-y-3 vintage-body text-yellow-200 text-lg">
-              <p>(580) 555-TENNIS</p>
+              <p>(580) 483-3342</p>
               <p>info@lawtontennisacademy.com</p>
-              <p>123 Tennis Court Drive<br />Lawton, OK 73505</p>
             </div>
           </div>
         </div>

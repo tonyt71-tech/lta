@@ -29,8 +29,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="vintage-subheading text-xl text-green-800 mb-2">Phone</h4>
-                  <p className="vintage-body text-lg text-green-700">(580) 555-TENNIS</p>
-                  <p className="vintage-body text-lg text-green-700">(580) 555-8366</p>
+                  <p className="vintage-body text-lg text-green-700">(580) 483-3342</p>
                 </div>
               </div>
 
@@ -101,7 +100,7 @@ const Contact = () => {
                 <input
                   type="tel"
                   className="w-full px-4 py-3 border-3 border-green-300 rounded-lg focus:border-yellow-400 focus:outline-none transition-colors vintage-body text-lg"
-                  placeholder="(580) 555-0123"
+                  placeholder="(580) 483-3342"
                 />
               </div>
 

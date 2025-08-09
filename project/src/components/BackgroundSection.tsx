@@ -44,7 +44,7 @@ const BackgroundSection = () => {
               Call us today to start your tennis journey
             </p>
             <p className="vintage-subheading text-2xl text-yellow-300">
-              (580) 555-TENNIS
+              (580) 483-3342
             </p>
           </div>
         </div>
