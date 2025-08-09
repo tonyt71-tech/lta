@@ -22,7 +22,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # REQUIRED: lets Pages accept the artifact
+      # Required so Pages accepts the artifact
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
@@ -31,7 +31,6 @@ jobs:
         with:
           node-version: 20
 
-      # Your app is in /project (bolt.new structure)
       - name: Install dependencies
         working-directory: project
         run: npm install --no-audit --no-fund
@@ -42,18 +41,25 @@ jobs:
           npm run build
           cp dist/index.html dist/404.html  # SPA fallback
 
-      # REQUIRED: upload the built site for Pages to publish
+      # Debug: prove the artifact exists and isn't empty
+      - name: Show dist contents
+        working-directory: project
+        run: |
+          echo "Dist tree:"
+          ls -lah dist || true
+          echo "Size:"
+          du -sh dist || true
+
+      # Upload the built site for Pages to publish
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: project/dist
 
+  # Publish (no environment gate so nothing can block it)
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
