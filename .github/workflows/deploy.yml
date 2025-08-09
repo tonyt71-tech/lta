@@ -1,3 +1,4 @@
+# .github/workflows/deploy.yml
 name: Build & Deploy (GitHub Pages)
 
 on:
@@ -21,6 +22,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # REQUIRED: tells Pages to expect an artifact from this run
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
@@ -29,7 +31,7 @@ jobs:
         with:
           node-version: 20
 
-      # Your app lives in /project (bolt.new structure)
+      # Your app lives in /project
       - name: Install dependencies
         working-directory: project
         run: npm install --no-audit --no-fund
@@ -40,6 +42,7 @@ jobs:
           npm run build
           cp dist/index.html dist/404.html  # SPA fallback
 
+      # REQUIRED: upload the artifact exactly from project/dist
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
