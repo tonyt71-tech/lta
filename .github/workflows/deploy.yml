@@ -1,5 +1,4 @@
-# File: .github/workflows/deploy.yml
-name: Build & Deploy (GitHub Pages)
+name: Build & Publish to gh-pages
 
 on:
   push:
@@ -7,31 +6,22 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  contents: write   # needed to push to gh-pages
 
 jobs:
-  build:
+  build-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      # Required so Pages accepts the artifact
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: Install dependencies
+      # Build from /project (your bolt.new structure)
+      - name: Install deps
         working-directory: project
         run: npm install --no-audit --no-fund
 
@@ -40,27 +30,13 @@ jobs:
         run: |
           npm run build
           cp dist/index.html dist/404.html  # SPA fallback
+          echo "lawtontennisacademy.com" > dist/CNAME  # keep custom domain
 
-      # Debug: prove the artifact exists and isn't empty
-      - name: Show dist contents
-        working-directory: project
-        run: |
-          echo "Dist tree:"
-          ls -lah dist || true
-          echo "Size:"
-          du -sh dist || true
-
-      # Upload the built site for Pages to publish
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      # Publish dist/ to gh-pages branch (no Pages publisher needed)
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          path: project/dist
-
-  # Publish (no environment gate so nothing can block it)
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: project/dist
+          force_orphan: true
