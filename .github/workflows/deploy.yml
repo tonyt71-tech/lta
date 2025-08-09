@@ -22,19 +22,18 @@ jobs:
         working-directory: project
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      # Always use npm install so mismatched lockfiles can't break the build
-      - name: Install dependencies
+      # don’t use npm ci (avoids lock mismatch errors)
+      - name: Install deps
         run: npm install --no-audit --no-fund
 
       - name: Build
         run: npm run build
 
-      - name: SPA fallback (index -> 404)
+      - name: SPA fallback
         run: cp dist/index.html dist/404.html
 
       - name: Upload artifact
