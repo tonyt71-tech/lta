@@ -30,11 +30,27 @@ jobs:
         run: |
           npm run build
           cp dist/index.html dist/404.html
+
+          # --- Cache-busting & live version stamp ---
           TS=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
           echo "$TS" > dist/_version.txt
-          # cache-buster meta (forces CDN refresh)
-          echo "<meta name=\"x-build\" content=\"$TS\">" >> dist/index.html
-          # ensure custom domain
+
+          # 1) Inject a build meta tag right after <head>
+          awk -v ts="$TS" '
+            BEGIN{injected=0}
+            /<head[^>]*>/ && !injected {
+              print
+              print "    <meta name=\"x-build\" content=\"" ts "\">"
+              injected=1
+              next
+            }
+            {print}
+          ' dist/index.html > dist/index.tmp && mv dist/index.tmp dist/index.html
+
+          # 2) Add a query param to all asset links to bust CDN caches
+          sed -i "s#/assets/#/assets/?v=${TS}#g" dist/index.html
+
+          # Keep custom domain
           echo "lawtontennisacademy.com" > dist/CNAME
 
       - name: Deploy
