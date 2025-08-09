@@ -27,18 +27,14 @@ jobs:
         with:
           node-version: 20
 
+      # Always use npm install so mismatched lockfiles can't break the build
       - name: Install dependencies
-        run: |
-          if [ -f package-lock.json ]; then
-            npm ci
-          else
-            npm install --no-audit --no-fund
-          fi
+        run: npm install --no-audit --no-fund
 
       - name: Build
         run: npm run build
 
-      - name: SPA fallback
+      - name: SPA fallback (index -> 404)
         run: cp dist/index.html dist/404.html
 
       - name: Upload artifact
