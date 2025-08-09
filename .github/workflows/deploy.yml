@@ -30,16 +30,6 @@ jobs:
         run: |
           npm run build
           cp dist/index.html dist/404.html
-          # version stamp (for verification)
-          TS=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
-          echo "$TS" > dist/_version.txt
-          # add harmless build meta (does NOT touch asset paths)
-          awk -v ts="$TS" '
-            BEGIN{inj=0}
-            /<head[^>]*>/ && !inj { print; print "    <meta name=\"x-build\" content=\"" ts "\">"; inj=1; next }
-            { print }
-          ' dist/index.html > dist/.tmp && mv dist/.tmp dist/index.html
-          # ensure custom domain
           echo "lawtontennisacademy.com" > dist/CNAME
 
       - name: Deploy
