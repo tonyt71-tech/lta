@@ -1,4 +1,3 @@
-# File: .github/workflows/deploy.yml
 name: Build & Deploy (GitHub Pages)
 
 on:
@@ -18,33 +17,28 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: project   # <-- your app lives in /project
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      # Required so Pages recognizes and accepts the artifact we upload
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      # Use npm install (not npm ci) to avoid lockfile drift issues
-      - name: Install dependencies
-        run: npm install --no-audit --no-fund
+      # Your app lives in ./project (keep your bolt.new structure)
+      - name: Install deps
+        run: |
+          cd project
+          npm install --no-audit --no-fund
 
       - name: Build
-        run: npm run build
+        run: |
+          cd project
+          npm run build
+          cp dist/index.html dist/404.html  # SPA fallback
 
-      # SPA routing fallback for GitHub Pages
-      - name: Copy index.html to 404.html
-        run: cp dist/index.html dist/404.html
-
+      # Upload the built site for Pages to publish
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
