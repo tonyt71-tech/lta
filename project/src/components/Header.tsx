@@ -1,61 +1,84 @@
-import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import React, { useState } from "react";
+import { Menu, X } from "lucide-react";
 
-const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+export default function Header() {
+  const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 w-full bg-gradient-to-r from-green-800 to-green-700 shadow-lg z-50 border-b-4 border-yellow-400">
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
-          <div className="flex items-center space-x-4">
-            <div className="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center">
-              <span className="text-green-800 font-bold text-xl">🎾</span>
+    <header className="fixed top-0 inset-x-0 z-50">
+      {/* Full-bleed green bar */}
+      <div className="header-glass">
+        {/* Centered content block */}
+        <div className="page-wrap">
+          {/* On desktop we center EVERYTHING as one group; on mobile we stack centered */}
+          <div className="flex flex-col items-center gap-3 py-2 md:flex-row md:items-center md:justify-center md:gap-8">
+            {/* Brand */}
+            <div className="flex items-center gap-3">
+              <div
+                className="w-10 h-10 rounded-full grid place-items-center"
+                style={{ backgroundColor: "var(--brand-accent)" }}
+              >
+                <span className="text-xl" style={{ color: "#0f3b25" }}>
+                  🎾
+                </span>
+              </div>
+              <span
+                className="text-yellow-100 text-xl"
+                style={{ fontFamily: "Crimson Text, serif" }}
+              >
+                Lawton Tennis Academy
+              </span>
             </div>
-            <h1 className="vintage-subheading text-yellow-300 text-2xl">
-              Lawton Tennis Academy
-            </h1>
-          </div>
-          
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
-            <a href="#home" className="vintage-body text-yellow-200 hover:text-yellow-400 transition-colors font-medium text-lg">Home</a>
-            <a href="#about" className="vintage-body text-yellow-200 hover:text-yellow-400 transition-colors font-medium text-lg">About</a>
-            <a href="#contact" className="vintage-body text-yellow-200 hover:text-yellow-400 transition-colors font-medium text-lg">Contact</a>
-          </nav>
 
-          {/* Schedule Button */}
-          <div className="hidden md:block">
-            <button className="retro-button-primary px-6 py-2 text-lg">
-              SCHEDULE
+            {/* Desktop nav — centered with brand */}
+            <nav className="hidden md:flex items-center gap-8">
+              <a
+                href="#home"
+                className="text-yellow-100 hover:text-yellow-300"
+                style={{ fontFamily: "Crimson Text, serif" }}
+              >
+                Home
+              </a>
+              <a
+                href="#about"
+                className="text-yellow-100 hover:text-yellow-300"
+                style={{ fontFamily: "Crimson Text, serif" }}
+              >
+                About
+              </a>
+              <a
+                href="#contact"
+                className="text-yellow-100 hover:text-yellow-300"
+                style={{ fontFamily: "Crimson Text, serif" }}
+              >
+                Contact
+              </a>
+              <a href="#schedule" className="btn-primary">Schedule</a>
+            </nav>
+
+            {/* Mobile toggle (kept to the right of the centered block) */}
+            <button
+              className="md:hidden self-end text-yellow-200"
+              aria-label="Toggle menu"
+              onClick={() => setOpen(!open)}
+            >
+              {open ? <X /> : <Menu />}
             </button>
           </div>
-
-          {/* Mobile menu button */}
-          <button
-            className="md:hidden text-yellow-300"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
         </div>
 
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <nav className="md:hidden py-6 border-t border-green-600">
-            <div className="flex flex-col space-y-4">
-              <a href="#home" className="vintage-body text-yellow-200 hover:text-yellow-400 transition-colors py-2 text-lg">Home</a>
-              <a href="#about" className="vintage-body text-yellow-200 hover:text-yellow-400 transition-colors py-2 text-lg">About</a>
-              <a href="#contact" className="vintage-body text-yellow-200 hover:text-yellow-400 transition-colors py-2 text-lg">Contact</a>
-              <button className="retro-button-primary px-6 py-2 text-lg mt-4">
-                SCHEDULE
-              </button>
+        {/* Mobile menu (centered) */}
+        {open && (
+          <div className="md:hidden border-t border-yellow-500/30">
+            <div className="page-wrap py-3 flex flex-col items-center gap-3">
+              <a className="text-yellow-100" href="#home" style={{ fontFamily: "Crimson Text, serif" }}>Home</a>
+              <a className="text-yellow-100" href="#about" style={{ fontFamily: "Crimson Text, serif" }}>About</a>
+              <a className="text-yellow-100" href="#contact" style={{ fontFamily: "Crimson Text, serif" }}>Contact</a>
+              <a href="#schedule" className="btn-primary w-max">Schedule</a>
             </div>
-          </nav>
+          </div>
         )}
       </div>
     </header>
   );
-};
-
-export default Header;
+}
