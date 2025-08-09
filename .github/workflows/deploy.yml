@@ -1,4 +1,4 @@
-name: Build & Deploy (GitHub Pages)
+name: Build & Publish to gh-pages
 
 on:
   push:
@@ -6,16 +6,10 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  contents: write    # needed to push to gh-pages
 
 jobs:
-  build:
+  build-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -26,31 +20,22 @@ jobs:
         with:
           node-version: 20
 
-      # Your app lives in ./project (keep your bolt.new structure)
-      - name: Install deps
-        run: |
-          cd project
-          npm install --no-audit --no-fund
+      # Your app lives in /project (keep bolt.new structure)
+      - name: Install
+        working-directory: project
+        run: npm install --no-audit --no-fund
 
       - name: Build
+        working-directory: project
         run: |
-          cd project
           npm run build
           cp dist/index.html dist/404.html  # SPA fallback
 
-      # Upload the built site for Pages to publish
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      # Publish dist/ to gh-pages branch
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          path: project/dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: project/dist
+          force_orphan: true
