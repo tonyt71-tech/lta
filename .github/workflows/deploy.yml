@@ -1,3 +1,4 @@
+# File: .github/workflows/deploy.yml
 name: Build & Deploy (GitHub Pages)
 
 on:
@@ -9,6 +10,10 @@ permissions:
   contents: read
   pages: write
   id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -22,6 +27,7 @@ jobs:
         with:
           node-version: 20
 
+      # Your app is inside /project (bolt.new structure)
       - name: Install dependencies
         working-directory: project
         run: npm install --no-audit --no-fund
@@ -30,8 +36,9 @@ jobs:
         working-directory: project
         run: |
           npm run build
-          cp dist/index.html dist/404.html
+          cp dist/index.html dist/404.html  # SPA fallback
 
+      # Tell Pages what to publish
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
