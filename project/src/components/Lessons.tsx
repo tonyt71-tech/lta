@@ -2,30 +2,32 @@ import React from 'react';
 
 const Lessons: React.FC = () => {
   return (
-    <section className="py-20 bg-gradient-to-b from-green-900 to-green-950 text-white">
-      <div className="container mx-auto px-4">
+    <section className="relative retro-bg py-20 text-white">
+      <div className="max-w-6xl mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="vintage-headline text-5xl md:text-6xl text-yellow-300 mb-6">
+          <h2 className="vintage-headline text-5xl md:text-6xl mb-6">
             SCHEDULE A LESSON
           </h2>
           <div className="vintage-divider max-w-lg mx-auto mb-8"></div>
-          <p className="vintage-subheading text-2xl text-yellow-100">
+          <p className="vintage-subheading text-2xl">
             Use the calendar below to check availability and book your session.
           </p>
         </div>
 
-        <div className="w-full max-w-6xl mx-auto aspect-[4/3] mb-16 rounded-lg overflow-hidden shadow-xl">
-          <iframe
-            src="https://calendar.google.com/calendar/embed?src=e7389edd6836d48e1d2d371d0879a5d8ad0a51142915fb127b5fccf157eec288%40group.calendar.google.com&ctz=America%2FChicago"
-            style={{ border: 0 }}
-            className="w-full h-full"
-            frameBorder="0"
-            scrolling="no"
-            title="Tennis Lesson Booking Calendar"
-          ></iframe>
+        <div className="bg-white/90 text-green-900 rounded-lg shadow-xl p-4 mb-16">
+          <div className="w-full aspect-[4/3] rounded-lg overflow-hidden">
+            <iframe
+              src="https://calendar.google.com/calendar/embed?src=e7389edd6836d48e1d2d371d0879a5d8ad0a51142915fb127b5fccf157eec288%40group.calendar.google.com&ctz=America%2FChicago"
+              style={{ border: 0 }}
+              className="w-full h-full"
+              frameBorder="0"
+              scrolling="no"
+              title="Tennis Lesson Booking Calendar"
+            ></iframe>
+          </div>
         </div>
 
-        <div className="bg-white text-green-900 p-8 rounded-lg shadow-xl max-w-4xl mx-auto mb-16">
+        <div className="bg-white/90 text-green-900 p-8 rounded-lg shadow-xl mb-16">
           <h3 className="text-3xl font-bold mb-6 text-center">
             Certifications
           </h3>
@@ -36,7 +38,7 @@ const Lessons: React.FC = () => {
           </ul>
         </div>
 
-        <div className="bg-white text-green-900 p-8 rounded-lg shadow-xl max-w-4xl mx-auto">
+        <div className="bg-white/90 text-green-900 p-8 rounded-lg shadow-xl">
           <h3 className="text-3xl font-bold mb-6 text-center">
             🎾 Tennis Lesson Pricing Structure
           </h3>
