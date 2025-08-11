@@ -5,7 +5,7 @@ const About = () => {
     <section id="about" className="full-bleed header-match-bg py-20 text-white">
       <div className="max-w-6xl mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h2 className="vintage-headline text-5xl md:text-6xl mb-6">
             CLASSIC TENNIS TRADITION
           </h2>
@@ -14,7 +14,32 @@ const About = () => {
             Where the timeless elegance of tennis meets Southwest Oklahoma charm
           </p>
         </div>
-        
+
+        {/* Technology Advantage */}
+        <div className="vintage-card bg-white/90 text-green-900 rounded-lg p-8 mb-16 shadow-lg">
+          <h3 className="vintage-subheading text-3xl mb-4">
+            🎾 Next-Level Coaching with Pro-Grade AI Video Analysis
+          </h3>
+          <p className="vintage-body text-lg leading-relaxed mb-4">
+            I’m one of the few coaches in the region using the same AI-powered video analysis
+            trusted by top professional players. Every lesson becomes smarter, faster, and
+            tailored to you with instant on-court feedback.
+          </p>
+          <div className="grid md:grid-cols-2 gap-6">
+            <ul className="list-disc list-inside space-y-2 vintage-body">
+              <li><strong>Instant stroke analysis</strong> for forehands, backhands, serves, and volleys.</li>
+              <li><strong>Pro-level performance stats</strong> like speed, spin, shot placement, and rally length.</li>
+              <li><strong>Automatic video highlights</strong> to review right after your session.</li>
+              <li><strong>Ultra-accurate line calling</strong> to sharpen shot selection.</li>
+            </ul>
+            <ul className="list-disc list-inside space-y-2 vintage-body">
+              <li><strong>Up to 40% faster improvement</strong> versus traditional video review.</li>
+              <li>Technology used in <strong>millions of sessions worldwide</strong>.</li>
+              <li>Approved for use in official tournaments for tracking and line calls.</li>
+            </ul>
+          </div>
+        </div>
+
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Lesson Options & Pricing */}
           <div className="space-y-8">
@@ -52,9 +77,7 @@ const About = () => {
                 world-class tennis lessons in an inspiring, peaceful setting.
               </p>
               <p className="vintage-body text-lg leading-relaxed mb-6">
-                Our academy combines time-tested fundamentals with modern training techniques.
-                Whether you're picking up a racquet for the first time or refining your competitive edge,
-                we'll help you develop your game with style and precision.
+                We combine time-tested fundamentals with modern training so you build real, durable skill.
               </p>
               <div className="space-y-4">
                 {[
