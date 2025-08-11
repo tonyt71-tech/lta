@@ -26,7 +26,7 @@ export default function Header() {
                 className="text-yellow-100 text-xl"
                 style={{ fontFamily: "Crimson Text, serif" }}
               >
-                Lawton Tennis Academy
+                Lawton Tennis Academy TEST
               </span>
             </div>
 
