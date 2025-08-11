@@ -46,7 +46,7 @@ const Hero = () => {
             <button className="retro-button-secondary w-full py-3 text-xl">BOOK PRIVATE</button>
           </div>
 
-          <div className="vintage-card bg-white/90 text-green-900 rounded-lg p-8">
+        <div className="vintage-card bg-white/90 text-green-900 rounded-lg p-8">
             <div className="text-center mb-6">
               <div className="text-6xl mb-4">👥</div>
               <h3 className="vintage-subheading text-3xl mb-4">SMALL GROUP LESSONS</h3>
@@ -63,14 +63,8 @@ const Hero = () => {
         </div>
 
         <div className="mt-16 text-center">
-          <p className="vintage-body text-xl mb-4">Call us today to start your tennis journey</p>
+          <p className="vintage-body text-xl mb-4">Call or text us today to start your tennis journey</p>
           <p className="vintage-subheading text-2xl">(580) 483-3342</p>
-        </div>
-      </div>
-
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-yellow-400 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-yellow-400 rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
     </section>
