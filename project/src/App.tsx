@@ -12,7 +12,6 @@ export default function App() {
       <main>
         <Hero />
         <About />
-        {/* Ensure Pricing is included and in the right spot */}
         <Contact />
       </main>
       <Footer />

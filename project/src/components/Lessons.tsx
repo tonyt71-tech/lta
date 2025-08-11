@@ -2,8 +2,8 @@ import React from 'react';
 
 const Lessons: React.FC = () => {
   return (
-    <section className="relative retro-bg py-20 text-white">
-      <div className="max-w-6xl mx-auto px-4 relative z-10">
+    <section className="full-bleed header-match-bg py-20 text-white">
+      <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="vintage-headline text-5xl md:text-6xl mb-6">
             SCHEDULE A LESSON
@@ -28,9 +28,7 @@ const Lessons: React.FC = () => {
         </div>
 
         <div className="bg-white/90 text-green-900 p-8 rounded-lg shadow-xl mb-16">
-          <h3 className="text-3xl font-bold mb-6 text-center">
-            Certifications
-          </h3>
+          <h3 className="text-3xl font-bold mb-6 text-center">Certifications</h3>
           <ul className="list-disc list-inside text-left text-xl space-y-4">
             <li>PTR Certified – Adult Development</li>
             <li>USTA Safe Play Certified</li>
@@ -39,9 +37,7 @@ const Lessons: React.FC = () => {
         </div>
 
         <div className="bg-white/90 text-green-900 p-8 rounded-lg shadow-xl">
-          <h3 className="text-3xl font-bold mb-6 text-center">
-            🎾 Tennis Lesson Pricing Structure
-          </h3>
+          <h3 className="text-3xl font-bold mb-6 text-center">🎾 Tennis Lesson Pricing Structure</h3>
           <ul className="list-disc list-inside text-left text-xl space-y-4">
             <li><strong>1-on-1 Private Lesson:</strong> $25 per hour</li>
             <li><strong>Semi-Private (2 players):</strong> $18 per person ($36/hr)</li>

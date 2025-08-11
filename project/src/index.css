@@ -20,17 +20,24 @@ body {
   color: var(--brand-text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden; /* prevent 100vw bleed scroll */
 }
 
+/* root */
+#root, main { min-height: 100%; }
+
+/* Layout helpers */
 .page-wrap { @apply mx-auto w-full max-w-[1100px] px-4 md:px-6; }
 .prose-wrap { @apply mx-auto w-full max-w-[900px]  px-4 md:px-6; }
 
+/* Typography */
 .hd-1{ font-size:clamp(32px,6vw,64px); line-height:1.12; font-family:"Playfair Display",serif; letter-spacing:.5px; color:var(--brand-accent2); }
 .hd-2{ font-size:clamp(24px,3.2vw,36px); line-height:1.15; font-family:"Playfair Display",serif; }
 .hd-3{ font-size:clamp(20px,2.4vw,28px); line-height:1.2;  font-family:"Playfair Display",serif; }
 .subhead{ font-size:clamp(16px,2vw,22px); font-family:"Crimson Text",serif; }
 .body{ font-size:clamp(15px,1.2vw,18px); font-family:"Crimson Text",serif; }
 
+/* Buttons */
 @layer components{
   .btn-primary{
     @apply inline-flex items-center justify-center rounded-2xl px-5 py-3 font-bold border-4 shadow-lg transition-transform;
@@ -44,19 +51,30 @@ body {
   .btn-primary:hover{ transform:translateY(-2px); }
 }
 
+/* Header */
 .header-glass{
   backdrop-filter:saturate(140%) blur(6px);
   background: linear-gradient(90deg, var(--brand-panel), var(--brand-panel-2));
   border-bottom: 4px solid var(--brand-accent);
 }
-
 .hero-overlay{
   background:linear-gradient(180deg,rgba(0,0,0,.25) 0%, rgba(0,0,0,.35) 100%);
 }
 
+/* Default section bg transparent so our full-bleed classes paint */
 section, header, footer { background: transparent; }
 
-/* === Header-Matching Background === */
-.header-match-bg {
+/* === Full-bleed helper (escapes centered wrappers) === */
+.full-bleed{
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+}
+
+/* === Header-matching background === */
+.header-match-bg{
   background: linear-gradient(90deg, var(--brand-panel), var(--brand-panel-2));
 }
