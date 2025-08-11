@@ -17,58 +17,42 @@ const About = () => {
           </div>
           
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Content */}
+            {/* Lesson Options & Pricing */}
             <div className="space-y-8">
               <h3 className="vintage-subheading text-4xl text-green-800 mb-6">
                 LESSON OPTIONS & PRICING
               </h3>
               
-              {/* Private Lessons */}
-              <div className="vintage-card rounded-lg p-8 transition-all duration-300">
-                <div className="text-center mb-6">
-                  <div className="text-6xl mb-4">🎾</div>
-                  <h4 className="vintage-subheading text-3xl text-green-800 mb-4">
-                    PRIVATE LESSONS
-                  </h4>
-                </div>
-                
-                <p className="vintage-body text-lg text-green-700 mb-6 leading-relaxed">
-                  One-on-one instruction tailored to your skill level. Perfect for beginners 
-                  learning fundamentals or advanced players refining technique.
-                </p>
-                
-                <div className="text-center mb-6">
-                  <span className="vintage-subheading text-3xl text-green-800">$85</span>
-                  <span className="vintage-body text-green-600 ml-2 text-xl">per hour</span>
+              <div className="vintage-card rounded-lg p-8 transition-all duration-300 space-y-6">
+                {/* 1-on-1 Private Lesson */}
+                <div>
+                  <p className="vintage-subheading text-2xl text-green-800">■ 1-on-1 Private Lesson</p>
+                  <p className="vintage-body text-green-700">$25 per hour</p>
+                  <p className="vintage-body text-green-700">
+                    ■ Personalized coaching, perfect for beginners or focused skill work
+                  </p>
                 </div>
 
-                <button className="retro-button-secondary w-full py-3 text-xl">
-                  BOOK PRIVATE
-                </button>
-              </div>
-
-              {/* Small Group Lessons */}
-              <div className="vintage-card rounded-lg p-8 transition-all duration-300">
-                <div className="text-center mb-6">
-                  <div className="text-6xl mb-4">👥</div>
-                  <h4 className="vintage-subheading text-3xl text-green-800 mb-4">
-                    SMALL GROUP LESSONS
-                  </h4>
-                </div>
-                
-                <p className="vintage-body text-lg text-green-700 mb-6 leading-relaxed">
-                  Learn with friends in our small group sessions. 3-5 students maximum 
-                  ensures personal attention while building camaraderie.
-                </p>
-                
-                <div className="text-center mb-6">
-                  <span className="vintage-subheading text-3xl text-green-800">$45</span>
-                  <span className="vintage-body text-green-600 ml-2 text-xl">per person/hour</span>
+                {/* Semi-Private */}
+                <div>
+                  <p className="vintage-subheading text-2xl text-green-800">■ Semi-Private (2–3 Players)</p>
+                  <p className="vintage-body text-green-700">2 Players: $18 per person ($36/hour total)</p>
+                  <p className="vintage-body text-green-700">3 Players: $15 per person ($45/hour total)</p>
+                  <p className="vintage-body text-green-700">
+                    ■ Balanced value and individual attention, ideal for friends or siblings
+                  </p>
                 </div>
 
-                <button className="retro-button-secondary w-full py-3 text-xl">
-                  BOOK GROUP
-                </button>
+                {/* Small Group */}
+                <div>
+                  <p className="vintage-subheading text-2xl text-green-800">■ Small Group (4–6 Players)</p>
+                  <p className="vintage-body text-green-700">4 Players: $12 per person ($48/hour total)</p>
+                  <p className="vintage-body text-green-700">5 Players: $10 per person ($50/hour total)</p>
+                  <p className="vintage-body text-green-700">6 Players: $9 per person ($54/hour total)</p>
+                  <p className="vintage-body text-green-700">
+                    ■ Fun, energetic, game-based drills
+                  </p>
+                </div>
               </div>
             </div>
 
