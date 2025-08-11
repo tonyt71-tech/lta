@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-gradient-to-r from-green-900 to-green-800 text-yellow-200 py-16 paper-texture">
+    <footer className="full-bleed header-match-bg text-yellow-200 py-16">
       <div className="max-w-[1600px] mx-auto px-6">
         <div className="grid md:grid-cols-3 gap-12">
           {/* Academy Info */}
@@ -16,16 +16,14 @@ const Footer = () => {
               </h3>
             </div>
             <p className="vintage-body text-yellow-100 leading-relaxed text-lg">
-              Where classic tennis tradition meets the natural beauty of Southwest Oklahoma. 
+              Where classic tennis tradition meets the natural beauty of Southwest Oklahoma.
               Serving our community since the golden age of tennis.
             </p>
           </div>
 
           {/* Quick Links */}
           <div className="text-center">
-            <h4 className="vintage-subheading text-xl text-yellow-300 mb-6">
-              QUICK LINKS
-            </h4>
+            <h4 className="vintage-subheading text-xl text-yellow-300 mb-6">QUICK LINKS</h4>
             <ul className="space-y-3">
               <li><a href="#home" className="vintage-body text-yellow-200 hover:text-yellow-400 transition-colors text-lg">Home</a></li>
               <li><a href="#about" className="vintage-body text-yellow-200 hover:text-yellow-400 transition-colors text-lg">About</a></li>
@@ -36,11 +34,10 @@ const Footer = () => {
 
           {/* Contact Summary */}
           <div className="text-center md:text-right">
-            <h4 className="vintage-subheading text-xl text-yellow-300 mb-6">
-              CONTACT
-            </h4>
+            <h4 className="vintage-subheading text-xl text-yellow-300 mb-6">CONTACT</h4>
             <div className="space-y-3 vintage-body text-yellow-200 text-lg">
               <p>(580) 483-3342</p>
+              <p>info@lawtontennisacademy.com</p>
             </div>
           </div>
         </div>
