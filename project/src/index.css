@@ -6,14 +6,13 @@
 :root{
   /* Deep court green background everywhere */
   --brand-bg: #0f3b25;
-  --brand-panel: #165435;   /* header/footer gradient start */
-  --brand-panel-2: #1b6a42; /* header/footer gradient end   */
-  --brand-text: #f7f7e8;    /* light text */
-  --brand-accent: #f2cf38;  /* gold */
-  --brand-accent2:#ffe175;  /* light gold */
+  --brand-panel: #165435;
+  --brand-panel-2: #1b6a42;
+  --brand-text: #f7f7e8;
+  --brand-accent: #f2cf38;
+  --brand-accent2:#ffe175;
 }
 
-/* Remove any default margins and paint the whole page green */
 html, body { height: 100%; }
 html { font-size: clamp(15px, 0.9vw + 10px, 16.5px); }
 body {
@@ -24,18 +23,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Containers */
 .page-wrap { @apply mx-auto w-full max-w-[1100px] px-4 md:px-6; }
 .prose-wrap { @apply mx-auto w-full max-w-[900px]  px-4 md:px-6; }
 
-/* Typography */
 .hd-1{ font-size:clamp(32px,6vw,64px); line-height:1.12; font-family:"Playfair Display",serif; letter-spacing:.5px; color:var(--brand-accent2); }
 .hd-2{ font-size:clamp(24px,3.2vw,36px); line-height:1.15; font-family:"Playfair Display",serif; }
 .hd-3{ font-size:clamp(20px,2.4vw,28px); line-height:1.2;  font-family:"Playfair Display",serif; }
 .subhead{ font-size:clamp(16px,2vw,22px); font-family:"Crimson Text",serif; }
 .body{ font-size:clamp(15px,1.2vw,18px); font-family:"Crimson Text",serif; }
 
-/* Buttons */
 @layer components{
   .btn-primary{
     @apply inline-flex items-center justify-center rounded-2xl px-5 py-3 font-bold border-4 shadow-lg transition-transform;
@@ -49,17 +45,27 @@ body {
   .btn-primary:hover{ transform:translateY(-2px); }
 }
 
-/* Header glass + full-bleed gradient bar */
 .header-glass{
   backdrop-filter:saturate(140%) blur(6px);
   background: linear-gradient(90deg, var(--brand-panel), var(--brand-panel-2));
   border-bottom: 4px solid var(--brand-accent);
 }
 
-/* Hero overlay keeps image readable */
 .hero-overlay{
   background:linear-gradient(180deg,rgba(0,0,0,.25) 0%, rgba(0,0,0,.35) 100%);
 }
 
-/* Make sure any sections inherit the green background (no white gutters) */
 section, header, footer { background: transparent; }
+
+/* === 70s Retro Background === */
+.retro-bg {
+  background: linear-gradient(135deg, #f7b267 0%, #f79d65 25%, #f25c54 50%, #a53860 75%, #450920 100%);
+  background-size: cover;
+  position: relative;
+}
+.retro-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill-opacity='0.05'%3E%3Cpath d='M10 0h10v10H10zM0 10h10v10H0z'/%3E%3C/g%3E%3C/svg%3E");
+}
