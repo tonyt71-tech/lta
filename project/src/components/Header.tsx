@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
 
+const BOOK_URL =
+  "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3BArnBU5UvS5AGJjW9L5mEuC6mF4pJ2F0_ShR0A_d8Gav2uZHsV8B5SesHEjQ9Qhqu_mqGrPYf";
+
 export default function Header() {
   const [open, setOpen] = useState(false);
 
@@ -13,22 +16,19 @@ export default function Header() {
           {/* On desktop we center EVERYTHING as one group; on mobile we stack centered */}
           <div className="flex flex-col items-center gap-3 py-2 md:flex-row md:items-center md:justify-center md:gap-8">
             {/* Brand */}
-            <div className="flex items-center gap-3">
-              <div
-                className="w-10 h-10 rounded-full grid place-items-center"
-                style={{ backgroundColor: "var(--brand-accent)" }}
-              >
-                <span className="text-xl" style={{ color: "#0f3b25" }}>
-                  🎾
-                </span>
-              </div>
+            <a href="/" className="flex items-center gap-3">
+              <img
+                src="/logo.png"
+                alt="Lawton Tennis Academy"
+                className="h-10 w-10 rounded-full"
+              />
               <span
                 className="text-yellow-100 text-xl"
                 style={{ fontFamily: "Crimson Text, serif" }}
               >
                 Lawton Tennis Academy
               </span>
-            </div>
+            </a>
 
             {/* Desktop nav — centered with brand */}
             <nav className="hidden md:flex items-center gap-8">
@@ -53,7 +53,14 @@ export default function Header() {
               >
                 Contact
               </a>
-              <a href="#schedule" className="btn-primary">Schedule</a>
+              <a
+                href={BOOK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary"
+              >
+                Schedule
+              </a>
             </nav>
 
             {/* Mobile toggle (kept to the right of the centered block) */}
@@ -71,10 +78,35 @@ export default function Header() {
         {open && (
           <div className="md:hidden border-t border-yellow-500/30">
             <div className="page-wrap py-3 flex flex-col items-center gap-3">
-              <a className="text-yellow-100" href="#home" style={{ fontFamily: "Crimson Text, serif" }}>Home</a>
-              <a className="text-yellow-100" href="#about" style={{ fontFamily: "Crimson Text, serif" }}>About</a>
-              <a className="text-yellow-100" href="#contact" style={{ fontFamily: "Crimson Text, serif" }}>Contact</a>
-              <a href="#schedule" className="btn-primary w-max">Schedule</a>
+              <a
+                className="text-yellow-100"
+                href="#home"
+                style={{ fontFamily: "Crimson Text, serif" }}
+              >
+                Home
+              </a>
+              <a
+                className="text-yellow-100"
+                href="#about"
+                style={{ fontFamily: "Crimson Text, serif" }}
+              >
+                About
+              </a>
+              <a
+                className="text-yellow-100"
+                href="#contact"
+                style={{ fontFamily: "Crimson Text, serif" }}
+              >
+                Contact
+              </a>
+              <a
+                href={BOOK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary w-max"
+              >
+                Schedule
+              </a>
             </div>
           </div>
         )}

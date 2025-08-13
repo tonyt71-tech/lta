@@ -37,7 +37,7 @@ const Footer = () => {
             <h4 className="vintage-subheading text-xl text-yellow-300 mb-6">CONTACT</h4>
             <div className="space-y-3 vintage-body text-yellow-200 text-lg">
               <p>(580) 483-3342</p>
-              <p>example@gmail.com</p>
+              <p>lawtontennisacademy@gmail.com</p>
             </div>
           </div>
         </div>

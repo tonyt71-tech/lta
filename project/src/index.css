@@ -78,3 +78,13 @@ section, header, footer { background: transparent; }
 .header-match-bg{
   background: linear-gradient(90deg, var(--brand-panel), var(--brand-panel-2));
 }
+
+@keyframes gradient-x {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 6s ease infinite;
+}

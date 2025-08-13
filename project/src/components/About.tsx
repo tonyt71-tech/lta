@@ -44,29 +44,47 @@ const About = () => {
           <div className="vintage-divider max-w-md mx-auto"></div>
         </div>
 
-        {/* Top Two Boxes (equal height) */}
+        {/* Top Two Columns */}
         <div className="grid lg:grid-cols-2 gap-8 items-stretch">
-          {/* Left: Pricing */}
-          <div className="vintage-card bg-white/90 text-green-900 rounded-lg p-8 flex flex-col justify-between">
-            <div>
-              <p className="vintage-subheading text-2xl">■ 1-on-1 Private Lesson</p>
-              <p className="vintage-body">$25 per hour</p>
-              <p className="vintage-body">■ Personalized coaching, perfect for beginners or focused skill work</p>
+          {/* Left: Pricing cards */}
+          <div className="vintage-card bg-white/90 text-green-900 rounded-lg p-6 md:p-8">
+            {/* Card 1 */}
+            <div className="rounded-lg border border-green-300/40 bg-white shadow-sm p-6 mb-6">
+              <div className="inline-flex items-center gap-2 rounded-md bg-green-900 text-yellow-200 px-4 py-2 mb-4">
+                <span className="h-2 w-2 rounded-sm bg-yellow-300"></span>
+                <span className="vintage-subheading text-2xl">1-on-1 Private Lesson</span>
+              </div>
+              <p className="vintage-body text-lg mb-2">$25 per hour</p>
+              <p className="vintage-body">Personalized coaching, perfect for beginners or focused skill work</p>
             </div>
 
-            <div className="mt-6">
-              <p className="vintage-subheading text-2xl">■ Semi-Private (2–3 Players)</p>
-              <p className="vintage-body">2 Players: $18 per person ($36/hour total)</p>
-              <p className="vintage-body">3 Players: $15 per person ($45/hour total)</p>
-              <p className="vintage-body">■ Balanced value and individual attention, ideal for friends or siblings</p>
+            {/* Card 2 */}
+            <div className="rounded-lg border border-green-300/40 bg-white shadow-sm p-6 mb-6">
+              <div className="inline-flex items-center gap-2 rounded-md bg-green-900 text-yellow-200 px-4 py-2 mb-4">
+                <span className="h-2 w-2 rounded-sm bg-yellow-300"></span>
+                <span className="vintage-subheading text-2xl">Semi-Private (2–3 Players)</span>
+              </div>
+              <ul className="vintage-body space-y-1 text-lg">
+                <li>2 Players: $18 per person ($36/hour total)</li>
+                <li>3 Players: $15 per person ($45/hour total)</li>
+              </ul>
+              <p className="vintage-body mt-3">
+                Balanced value and individual attention, ideal for friends or siblings
+              </p>
             </div>
 
-            <div className="mt-6">
-              <p className="vintage-subheading text-2xl">■ Small Group (4–6 Players)</p>
-              <p className="vintage-body">4 Players: $12 per person ($48/hour total)</p>
-              <p className="vintage-body">5 Players: $10 per person ($50/hour total)</p>
-              <p className="vintage-body">6 Players: $9 per person ($54/hour total)</p>
-              <p className="vintage-body">■ Fun, energetic, game-based drills</p>
+            {/* Card 3 */}
+            <div className="rounded-lg border border-green-300/40 bg-white shadow-sm p-6">
+              <div className="inline-flex items-center gap-2 rounded-md bg-green-900 text-yellow-200 px-4 py-2 mb-4">
+                <span className="h-2 w-2 rounded-sm bg-yellow-300"></span>
+                <span className="vintage-subheading text-2xl">Small Group (4–6 Players)</span>
+              </div>
+              <ul className="vintage-body space-y-1 text-lg">
+                <li>4 Players: $12 per person ($48/hour total)</li>
+                <li>5 Players: $10 per person ($50/hour total)</li>
+                <li>6 Players: $9 per person ($54/hour total)</li>
+              </ul>
+              <p className="vintage-body mt-3">Fun, energetic, game-based drills</p>
             </div>
           </div>
 
