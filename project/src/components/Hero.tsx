@@ -1,5 +1,8 @@
 import React from 'react';
 
+const BOOK_URL =
+  'https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3BArnBU5UvS5AGJjW9L5mEuC6mF4pJ2F0_ShR0A_d8Gav2uZHsV8B5SesHEjQ9Qhqu_mqGrPYf';
+
 const Hero = () => {
   return (
     <section 
@@ -23,10 +26,16 @@ const Hero = () => {
           Classic Tennis Instruction in the Heart of Southwest Oklahoma
         </p>
 
+        {/* Schedule button now links out */}
         <div className="mb-16">
-          <button className="btn-primary text-3xl md:text-4xl px-12 py-6 inline-block">
+          <a
+            href={BOOK_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary text-3xl md:text-4xl px-12 py-6 inline-block"
+          >
             SCHEDULE A LESSON
-          </button>
+          </a>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -43,10 +52,17 @@ const Hero = () => {
               <span className="vintage-subheading text-2xl">$25</span>
               <span className="vintage-body ml-2">per hour</span>
             </div>
-            <button className="retro-button-secondary w-full py-3 text-xl">BOOK PRIVATE</button>
+            <a
+              href={BOOK_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="retro-button-secondary w-full py-3 text-xl text-center inline-block"
+            >
+              BOOK PRIVATE
+            </a>
           </div>
 
-        <div className="vintage-card bg-white/90 text-green-900 rounded-lg p-8">
+          <div className="vintage-card bg-white/90 text-green-900 rounded-lg p-8">
             <div className="text-center mb-6">
               <div className="text-6xl mb-4">👥</div>
               <h3 className="vintage-subheading text-3xl mb-4">SMALL GROUP LESSONS</h3>
@@ -58,13 +74,15 @@ const Hero = () => {
               <span className="vintage-subheading text-2xl">$9–$15</span>
               <span className="vintage-body ml-2">per person/hour</span>
             </div>
-            <button className="retro-button-secondary w-full py-3 text-xl">BOOK GROUP</button>
+            <a
+              href={BOOK_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="retro-button-secondary w-full py-3 text-xl text-center inline-block"
+            >
+              BOOK GROUP
+            </a>
           </div>
-        </div>
-
-        <div className="mt-16 text-center">
-          <p className="vintage-body text-xl mb-4">Call or text us today to start your tennis journey</p>
-          <p className="vintage-subheading text-2xl">(580) 483-3342</p>
         </div>
       </div>
     </section>

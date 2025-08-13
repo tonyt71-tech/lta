@@ -1,5 +1,8 @@
 import React from "react";
 
+const BOOK_URL =
+  "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3BArnBU5UvS5AGJjW9L5mEuC6mF4pJ2F0_ShR0A_d8Gav2uZHsV8B5SesHEjQ9Qhqu_mqGrPYf";
+
 export default function Contact() {
   return (
     <section
@@ -14,29 +17,31 @@ export default function Contact() {
           </h2>
           <div className="vintage-divider max-w-lg mx-auto mb-8"></div>
           <p className="vintage-subheading text-2xl max-w-3xl mx-auto">
-            Get in touch or book your lesson directly below.
+            Get in touch or book your lesson directly.
           </p>
         </div>
 
         {/* Contact Info */}
-        <div className="bg-white/90 text-green-900 rounded-lg p-8 mb-16 shadow-lg">
+        <div className="bg-white/90 text-green-900 rounded-lg p-8 mb-12 shadow-lg">
           <p className="vintage-body text-lg leading-relaxed">
+            <strong>Email:</strong> example@gmail.com
           </p>
           <p className="vintage-body text-lg leading-relaxed">
-            <strong>Phone:</strong> (580) 483-3342
+            <strong>Phone:</strong> (580) 555-TENNIS
           </p>
         </div>
 
-        {/* Calendar */}
-        <div className="bg-white/90 text-green-900 rounded-lg overflow-hidden border border-yellow-500/30 shadow-xl">
-          <iframe
-            src="https://calendar.google.com/calendar/embed?src=e7389edd6836d48e1d2d371d0879a5d8ad0a51142915fb127b5fccf157eec288%40group.calendar.google.com&ctz=America%2FChicago"
-            style={{ border: 0 }}
-            className="w-full h-[600px]"
-            frameBorder={0}
-            scrolling="no"
-            title="Schedule"
-          ></iframe>
+        {/* Booking Button (calendar iframe removed) */}
+        <div className="bg-white/90 text-green-900 rounded-lg p-8 text-center shadow-xl">
+          <h3 className="text-3xl font-bold mb-4">Book a Lesson</h3>
+          <a
+            href={BOOK_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary text-2xl px-10 py-4 inline-block"
+          >
+            Open Booking Page
+          </a>
         </div>
       </div>
     </section>

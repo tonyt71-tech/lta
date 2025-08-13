@@ -1,5 +1,8 @@
 import React from 'react';
 
+const BOOK_URL =
+  'https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3BArnBU5UvS5AGJjW9L5mEuC6mF4pJ2F0_ShR0A_d8Gav2uZHsV8B5SesHEjQ9Qhqu_mqGrPYf';
+
 const Lessons: React.FC = () => {
   return (
     <section className="full-bleed header-match-bg py-20 text-white">
@@ -15,14 +18,12 @@ const Lessons: React.FC = () => {
           </p>
         </div>
 
-        {/* Booking Button */}
+        {/* Booking Button (replaces old iframe) */}
         <div className="bg-white/90 text-green-900 rounded-lg shadow-xl p-10 mb-16 text-center">
           <h3 className="text-3xl font-bold mb-4">Book a Lesson</h3>
-          <p className="vintage-body text-lg mb-6">
-            Opens the booking page in a new tab.
-          </p>
+          <p className="vintage-body text-lg mb-6">Opens the booking page in a new tab.</p>
           <a
-            href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3BArnBU5UvS5AGJjW9L5mEuC6mF4pJ2F0_ShR0A_d8Gav2uZHsV8B5SesHEjQ9Qhqu_mqGrPYf"
+            href={BOOK_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary text-2xl px-10 py-4 inline-block"
