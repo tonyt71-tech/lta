@@ -24,10 +24,10 @@ export default function Contact() {
         {/* Contact Info */}
         <div className="bg-white/90 text-green-900 rounded-lg p-8 mb-12 shadow-lg">
           <p className="vintage-body text-lg leading-relaxed">
-            <strong>Email:</strong> example@gmail.com
+            <strong>Email:</strong> lawtontennisacademy@gmail.com
           </p>
           <p className="vintage-body text-lg leading-relaxed">
-            <strong>Phone:</strong> (580) 555-TENNIS
+            <strong>Phone:</strong> (580) 483-3342
           </p>
         </div>
 
