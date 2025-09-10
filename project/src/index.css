@@ -4,12 +4,12 @@
 
 /* ==== Global Theme ==== */
 :root{
-  --brand-bg: #0f3b25;
-  --brand-panel: #165435;
-  --brand-panel-2: #1b6a42;
+  --brand-bg: #0a2342;
+  --brand-panel: #116530;
+  --brand-panel-2: #0a2342;
   --brand-text: #f7f7e8;
-  --brand-accent: #f2cf38;
-  --brand-accent2:#ffe175;
+  --brand-accent: #ffd93d;
+  --brand-accent2:#ffef88;
 }
 
 html, body { height: 100%; }
@@ -44,7 +44,7 @@ body {
     color:#0f3b25;
     border-color:var(--brand-accent);
     background-image:linear-gradient(to right,var(--brand-accent),var(--brand-accent2));
-    font-family:"Bebas Neue",cursive;
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", "Liberation Sans", sans-serif;
     letter-spacing:2px;
     text-transform:uppercase;
   }
@@ -88,3 +88,14 @@ section, header, footer { background: transparent; }
   background-size: 200% 200%;
   animation: gradient-x 6s ease infinite;
 }
+
+/* === Brand title interaction and logo ring === */
+.brand-title{ @apply transition-transform; }
+.brand-title:hover{ transform: translateY(-1px) scale(1.02); }
+
+.logo-ring{
+  box-shadow: 0 0 0 3px var(--brand-panel) inset, 0 0 0 6px var(--brand-panel-2) inset;
+}
+
+/* Testimonials panel */
+.testimonial-card{ @apply bg-white/90 text-green-900 rounded-lg p-6 shadow-lg; }
