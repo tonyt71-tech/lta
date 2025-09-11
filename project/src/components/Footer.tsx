@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Footer = () => {
+export default function Footer() {
   return (
     <footer className="full-bleed header-match-bg text-yellow-200 py-16">
       <div className="max-w-[1600px] mx-auto px-6">
@@ -9,52 +9,40 @@ const Footer = () => {
           <div className="text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start space-x-4 mb-6">
               <div className="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center">
-                <span className="text-green-800 font-bold text-xl">🎾</span>
+                <span style={{color:'var(--wim-green)'}} className="font-bold text-xl">🎾</span>
               </div>
               <h3 className="vintage-subheading text-2xl text-yellow-300">
                 Lawton Tennis Academy
               </h3>
             </div>
-            <p className="vintage-body text-yellow-100 leading-relaxed text-lg">
-              Where classic tennis tradition meets the natural beauty of Southwest Oklahoma.
-              Serving our community since the golden age of tennis.
+            <p className="vintage-body opacity-90">
+              Classic instruction. Modern tools.
             </p>
           </div>
 
-          {/* Quick Links */}
+          {/* Contact */}
           <div className="text-center">
-            <h4 className="vintage-subheading text-xl text-yellow-300 mb-6">QUICK LINKS</h4>
-            <ul className="space-y-3">
-              <li><a href="#home" className="vintage-body text-yellow-200 hover:text-yellow-400 transition-colors text-lg">Home</a></li>
-              <li><a href="#about" className="vintage-body text-yellow-200 hover:text-yellow-400 transition-colors text-lg">About</a></li>
-              <li><a href="#contact" className="vintage-body text-yellow-200 hover:text-yellow-400 transition-colors text-lg">Contact</a></li>
-              <li><a href="#schedule" className="vintage-body text-yellow-200 hover:text-yellow-400 transition-colors text-lg">Schedule</a></li>
-            </ul>
+            <h4 className="vintage-subheading text-xl mb-2 text-yellow-300">Contact</h4>
+            <p className="vintage-body opacity-90">
+              Call or text: <span className="font-semibold">(580) 483-3342</span>
+            </p>
+            <p className="vintage-body opacity-90">Lawton, Oklahoma</p>
           </div>
 
-          {/* Contact Summary */}
+          {/* Hours */}
           <div className="text-center md:text-right">
-            <h4 className="vintage-subheading text-xl text-yellow-300 mb-6">CONTACT</h4>
-            <div className="space-y-3 vintage-body text-yellow-200 text-lg">
-              <p>(580) 483-3342</p>
-              <p>lawtontennisacademy@gmail.com</p>
-            </div>
+            <h4 className="vintage-subheading text-xl mb-2 text-yellow-300">Hours</h4>
+            <p className="vintage-body opacity-90">Mon–Sat: By appointment</p>
+            <p className="vintage-body opacity-90">Sun: Closed</p>
           </div>
         </div>
 
-        <div className="border-t border-yellow-500/30 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="vintage-body text-yellow-300 text-lg mb-4 md:mb-0">
-              © {new Date().getFullYear()} Lawton Tennis Academy. All rights reserved.
-            </p>
-            <p className="vintage-body text-yellow-200 text-lg">
-              Bringing classic tennis tradition to Southwest Oklahoma
-            </p>
-          </div>
-        </div>
+        <div className="mt-10 h-[6px] rounded-full" style={{backgroundImage:'linear-gradient(90deg, var(--brand-panel), var(--brand-panel-2))'}} />
+
+        <p className="text-center mt-6 text-sm opacity-80">
+          © {new Date().getFullYear()} Lawton Tennis Academy
+        </p>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

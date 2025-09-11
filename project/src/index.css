@@ -2,100 +2,81 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ==== Global Theme ==== */
+/* Wimbledon colors */
 :root{
-  --brand-bg: #0a2342;
-  --brand-panel: #116530;
-  --brand-panel-2: #0a2342;
-  --brand-text: #f7f7e8;
-  --brand-accent: #ffd93d;
-  --brand-accent2:#ffef88;
+  --wim-purple:#32006E;
+  --wim-green:#1B512D;
+
+  --brand-text:#F7F7E8;
+  --brand-accent:#FFD93D;
+  --brand-accent2:#FFEF88;
 }
 
-html, body { height: 100%; }
-html { font-size: clamp(15px, 0.9vw + 10px, 16.5px); }
-body {
-  margin: 0;
-  background: var(--brand-bg);
-  color: var(--brand-text);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden; /* prevent 100vw bleed scroll */
+/* Global L→R gradient */
+html,body,#root{
+  min-height:100%;
+  background:linear-gradient(90deg,var(--wim-purple) 0%, var(--wim-green) 100%);
+  color:var(--brand-text);
+  -webkit-font-smoothing:antialiased;
+}
+body{ overflow-x:hidden; }
+
+/* Panel that sits over gradient for readability */
+.section-panel{
+  background:rgba(0,0,0,0.5);
 }
 
-/* root */
-#root, main { min-height: 100%; }
+/* Solid title band when needed */
+.section-solid{
+  background:var(--wim-purple);
+  border-bottom:4px solid var(--brand-accent);
+  color:var(--brand-text);
+}
+.section-solid .divider{
+  height:8px; border-radius:999px;
+  background-image:linear-gradient(90deg,var(--wim-purple),var(--wim-green));
+}
 
 /* Layout helpers */
-.page-wrap { @apply mx-auto w-full max-w-[1100px] px-4 md:px-6; }
-.prose-wrap { @apply mx-auto w-full max-w-[900px]  px-4 md:px-6; }
+.page-wrap{ @apply mx-auto w-full max-w-[1100px] px-4 md:px-6; }
+.prose-wrap{ @apply mx-auto w-full max-w-[900px]  px-4 md:px-6; }
 
 /* Typography */
-.hd-1{ font-size:clamp(32px,6vw,64px); line-height:1.12; font-family:"Playfair Display",serif; letter-spacing:.5px; color:var(--brand-accent2); }
-.hd-2{ font-size:clamp(24px,3.2vw,36px); line-height:1.15; font-family:"Playfair Display",serif; }
-.hd-3{ font-size:clamp(20px,2.4vw,28px); line-height:1.2;  font-family:"Playfair Display",serif; }
-.subhead{ font-size:clamp(16px,2vw,22px); font-family:"Crimson Text",serif; }
-.body{ font-size:clamp(15px,1.2vw,18px); font-family:"Crimson Text",serif; }
+.hd-1{font-size:clamp(32px,6vw,64px);font-family:"Playfair Display",serif;line-height:1.12;color:var(--brand-accent2);}
+.hd-2{font-size:clamp(24px,3.2vw,36px);font-family:"Playfair Display",serif;}
+.subhead{font-size:clamp(16px,2vw,22px);font-family:"Crimson Text",serif;}
+.body{font-size:clamp(15px,1.2vw,18px);font-family:"Crimson Text",serif;}
 
 /* Buttons */
 @layer components{
   .btn-primary{
     @apply inline-flex items-center justify-center rounded-2xl px-5 py-3 font-bold border-4 shadow-lg transition-transform;
-    color:#0f3b25;
     border-color:var(--brand-accent);
     background-image:linear-gradient(to right,var(--brand-accent),var(--brand-accent2));
-    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", "Liberation Sans", sans-serif;
-    letter-spacing:2px;
-    text-transform:uppercase;
+    color:#0f3b25; letter-spacing:2px; text-transform:uppercase;
   }
   .btn-primary:hover{ transform:translateY(-2px); }
 }
 
-/* Header */
+/* Header bar */
 .header-glass{
   backdrop-filter:saturate(140%) blur(6px);
-  background: linear-gradient(90deg, var(--brand-panel), var(--brand-panel-2));
-  border-bottom: 4px solid var(--brand-accent);
-}
-.hero-overlay{
-  background:linear-gradient(180deg,rgba(0,0,0,.25) 0%, rgba(0,0,0,.35) 100%);
+  background:linear-gradient(90deg,var(--wim-purple),var(--wim-green));
+  border-bottom:4px solid var(--brand-accent);
 }
 
-/* Default section bg transparent so our full-bleed classes paint */
-section, header, footer { background: transparent; }
+/* Cards */
+.card-surface{ background:#ECEBF1; color:var(--wim-green); }
+.card{ @apply rounded-xl shadow-lg; }
 
-/* === Full-bleed helper (escapes centered wrappers) === */
-.full-bleed{
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  width: 100vw;
+/* Testimonials */
+.testimonial-card{ @apply card p-6 md:p-8; }
+.testimonial-quote{ @apply text-2xl md:text-3xl leading-relaxed; }
+.testimonial-author{ @apply text-lg opacity-80 mt-3; }
+
+/* Mountain background helper (optional for testimonials) */
+.mountain-bg{
+  background-image:url('/webbkgrndnotext.png');
+  background-size:cover; background-position:center; background-repeat:no-repeat;
 }
-
-/* === Header-matching background === */
-.header-match-bg{
-  background: linear-gradient(90deg, var(--brand-panel), var(--brand-panel-2));
-}
-
-@keyframes gradient-x {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
-
-.animate-gradient-x {
-  background-size: 200% 200%;
-  animation: gradient-x 6s ease infinite;
-}
-
-/* === Brand title interaction and logo ring === */
-.brand-title{ @apply transition-transform; }
-.brand-title:hover{ transform: translateY(-1px) scale(1.02); }
-
-.logo-ring{
-  box-shadow: 0 0 0 3px var(--brand-panel) inset, 0 0 0 6px var(--brand-panel-2) inset;
-}
-
-/* Testimonials panel */
-.testimonial-card{ @apply bg-white/90 text-green-900 rounded-lg p-6 shadow-lg; }
+.dark-scrim::before{ content:""; position:absolute; inset:0; background:rgba(0,0,0,.45); }
