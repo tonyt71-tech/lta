@@ -16,7 +16,6 @@ export default function About() {
 
         <div className="mt-2">
           <span className="inline-block bg-[var(--wim-green)] text-yellow-200 px-5 py-2 rounded-md font-semibold shadow-md">
-            ✅ USTA Safe Play Certified
           </span>
         </div>
       </div>

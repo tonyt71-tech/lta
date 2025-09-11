@@ -13,13 +13,14 @@ export default function Contact() {
 
       <section className="section-panel">
         <div className="page-wrap py-12 md:py-16">
-          <div className="card card-surface p-6 md:p-8">
-            <p className="body"><strong>Email:</strong> lawtontennisacademy@gmail.com</p>
-            <p className="body mt-2"><strong>Phone:</strong> (580) 483-3342</p>
-          </div>
-
-          <div className="mt-10">
-            <a href="mailto:lawtontennisacademy@gmail.com" className="btn-primary">Schedule</a>
+          {/* Full green box with centered text */}
+          <div
+            className="card rounded-lg p-10 flex justify-center items-center"
+            style={{ backgroundColor: 'var(--wim-green)' }}
+          >
+            <span className="font-semibold text-yellow-200 text-xl text-center">
+              ✅ USTA Safe Play Certified
+            </span>
           </div>
         </div>
       </section>
