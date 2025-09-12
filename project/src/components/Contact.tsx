@@ -7,7 +7,9 @@ export default function Contact() {
         <div className="page-wrap py-14 md:py-20 text-center">
           <h1 className="hd-1">Contact &amp; Schedule</h1>
           <div className="divider mx-auto max-w-xl mt-6" />
-          <p className="subhead opacity-90 mt-8">Get in touch or book your lesson directly.</p>
+          <p className="subhead opacity-90 mt-8 text-[2rem] md:text-[2.5rem] leading-tight">
+            Get in touch or book your lesson directly.
+          </p>
         </div>
       </section>
 
@@ -18,7 +20,7 @@ export default function Contact() {
             className="card rounded-lg p-10 flex justify-center items-center"
             style={{ backgroundColor: 'var(--wim-green)' }}
           >
-            <span className="font-semibold text-yellow-200 text-xl text-center">
+            <span className="font-semibold text-yellow-200 text-[3.5rem] md:text-[5rem] text-center leading-tight">
               ✅ USTA Safe Play Certified
             </span>
           </div>

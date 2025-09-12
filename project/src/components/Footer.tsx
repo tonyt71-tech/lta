@@ -11,32 +11,36 @@ export default function Footer() {
           {/* Academy Info */}
           <div className="text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start space-x-4 mb-6">
-              <div className="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center">
-                <span style={{ color: 'var(--wim-green)' }} className="font-bold text-xl">
-                  🎾
-                </span>
+              {/* Logo without yellow box */}
+              <div className="w-20 h-20 overflow-hidden flex items-center justify-center">
+                <img
+                  src="/logo.png"
+                  alt="Lawton Tennis Academy logo"
+                  className="w-full h-full object-contain"
+                />
               </div>
-              <h3 className="vintage-subheading text-2xl text-yellow-300">Lawton Tennis Academy</h3>
+              <h3 className="vintage-subheading text-4xl text-yellow-300">Lawton Tennis Academy</h3>
             </div>
-            <p className="vintage-body opacity-90">
+            <p className="vintage-body opacity-90 text-2xl">
               Classic instruction. Modern tools.
             </p>
           </div>
 
           {/* Contact */}
           <div className="text-center">
-            <h4 className="vintage-subheading text-xl mb-2 text-yellow-300">Contact</h4>
-            <p className="vintage-body opacity-90">
-              Call or text: <span className="font-semibold">(580) 483-3342</span>
-            </p>
-            <p className="vintage-body opacity-90">Lawton, Oklahoma</p>
+            <h4 className="vintage-subheading text-3xl mb-4 text-yellow-300">Contact</h4>
+        <div className="mt-10 text-center">
+          <p className="vintage-body text-xl text-yellow-200">
+            Questions? (580) 483-3342 • lawtontennisacademy@gmail.com
+          </p>
+        </div>
           </div>
 
           {/* Hours */}
           <div className="text-center md:text-right">
-            <h4 className="vintage-subheading text-xl mb-2 text-yellow-300">Hours</h4>
-            <p className="vintage-body opacity-90">Mon–Sat: By appointment</p>
-            <p className="vintage-body opacity-90">Sun: Closed</p>
+            <h4 className="vintage-subheading text-3xl mb-4 text-yellow-300">Hours</h4>
+            <p className="vintage-body opacity-90 text-2xl">Mon–Sat: By appointment</p>
+            <p className="vintage-body opacity-90 text-2xl">Sun: Closed</p>
           </div>
         </div>
 
@@ -45,26 +49,26 @@ export default function Footer() {
           style={{ backgroundImage: 'linear-gradient(90deg, var(--wim-purple), var(--wim-green))' }}
         />
 
-        {/* Schedule button now lives in footer */}
+        {/* Schedule button */}
         <div className="text-center mt-10">
           <a
             href={BOOK_URL}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Schedule a tennis lesson"
-            className="inline-block rounded-2xl px-10 py-4 text-lg font-extrabold tracking-wide
+            className="inline-block rounded-2xl px-14 py-6 text-3xl font-extrabold tracking-wide
                        bg-gradient-to-r from-[var(--brand-accent)]
                        via-[var(--brand-accent2)] to-[var(--brand-accent)]
                        animate-gradient-x transition-transform duration-300 ease-out
                        hover:scale-105 hover:brightness-110
-                       shadow-[0_6px_16px_rgba(0,0,0,.25)] border-2 border-yellow-300/60"
+                       shadow-[0_6px_16px_rgba(0,0,0,.25)] border-4 border-yellow-300/60"
             style={{ color: 'var(--wim-green)' }}
           >
             Schedule Your Lesson
           </a>
         </div>
 
-        <p className="text-center mt-6 text-sm opacity-80">
+        <p className="text-center mt-8 text-xl opacity-80">
           © {new Date().getFullYear()} Lawton Tennis Academy
         </p>
       </div>

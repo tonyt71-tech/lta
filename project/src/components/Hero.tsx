@@ -82,11 +82,6 @@ const Hero = () => {
         </div>
 
         {/* Contact line */}
-        <div className="mt-10 text-center">
-          <p className="vintage-body text-xl text-yellow-200">
-            Questions? (580) 483-3342 • lawtontennisacademy@gmail.com
-          </p>
-        </div>
       </div>
     </section>
   );
