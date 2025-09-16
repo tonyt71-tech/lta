@@ -1,10 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 const Footer: React.FC = () => {
   return (
     <footer className="relative text-yellow-300 bg-gradient-to-r from-purple-900 via-blue-900 to-green-900">
-      {/* Overlayed PNG with blur */}
+      {/* Blurred watermark */}
       <div className="absolute inset-0 flex justify-center items-center opacity-20">
         <img
           src="/lta_bg_nobg.png"
@@ -39,12 +38,12 @@ const Footer: React.FC = () => {
       </div>
 
       <div className="relative z-10 text-center mt-6">
-        <Link
-          to="/book"
+        <a
+          href="/book"
           className="inline-block bg-yellow-400 text-green-900 font-bold py-3 px-6 rounded-lg shadow-lg hover:scale-105 transition"
         >
           Schedule Your Lesson
-        </Link>
+        </a>
         <p className="mt-4 text-sm">© 2025 Lawton Tennis Academy</p>
       </div>
     </footer>
