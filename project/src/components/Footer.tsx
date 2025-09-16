@@ -2,13 +2,15 @@ import React from "react";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="relative text-yellow-300 bg-gradient-to-r from-purple-900 via-blue-900 to-green-900">
-      {/* Blurred watermark */}
-      <div className="absolute inset-0 flex justify-center items-center opacity-20">
+    <footer
+      className="relative text-yellow-300 bg-gradient-to-r from-purple-900 via-blue-900 to-green-900 overflow-hidden"
+    >
+      {/* Full-coverage mountain bg */}
+      <div className="absolute inset-0">
         <img
-          src="/lta_bg_nobg.png"
-          alt="LTA Background"
-          className="w-full h-full object-contain blur-sm"
+          src="/mountain_bg.png" // replace with your uploaded filename
+          alt="Mountain Background"
+          className="w-full h-full object-cover blur-sm opacity-20"
         />
       </div>
 
