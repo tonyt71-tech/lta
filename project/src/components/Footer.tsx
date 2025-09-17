@@ -18,8 +18,8 @@ const Footer: React.FC = () => {
         {/* Left */}
         <div>
           <div className="flex items-center justify-center md:justify-start mb-3">
-            <img src="/logo.png" alt="LTA" className="h-12 mr-3" />
-            <h2 className="text-2xl font-bold">Lawton Tennis Academy</h2>
+            <img src="/logo.png" alt="LTA" className="h-16 w-16 mr-3" />
+            <h2 className="text-3xl font-bold">Lawton Tennis Academy</h2>
           </div>
           <p>Classic instruction. Modern tools.</p>
         </div>

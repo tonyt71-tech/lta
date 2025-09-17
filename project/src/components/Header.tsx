@@ -17,10 +17,10 @@ export default function Header() {
               <img
                 src="/logo.png"
                 alt="Lawton Tennis Academy"
-                className="h-10 w-10 rounded-full logo-ring"
+                className="h-14 w-14 rounded-full logo-ring"
               />
               <span
-                className="text-yellow-100 text-xl brand-title"
+                className="text-yellow-100 text-2xl brand-title"
                 style={{ fontFamily: "Crimson Text, serif" }}
               >
                 Lawton Tennis Academy
