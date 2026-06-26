@@ -61,7 +61,7 @@ const Hero = () => {
               or advanced players refining technique.
             </p>
             <div className="text-center mb-2">
-              <span className="vintage-subheading text-2xl">$30</span>
+              <span className="vintage-subheading text-2xl">$35</span>
               <span className="vintage-body ml-2">per hour</span>
             </div>
           </div>
@@ -75,7 +75,7 @@ const Hero = () => {
               Learn with friends in our small group sessions. 2-5 students for attention and camaraderie.
             </p>
             <div className="text-center mb-2">
-              <span className="vintage-subheading text-2xl">$20</span>
+              <span className="vintage-subheading text-2xl">$25</span>
               <span className="vintage-body ml-2">per person/hour</span>
             </div>
           </div>
